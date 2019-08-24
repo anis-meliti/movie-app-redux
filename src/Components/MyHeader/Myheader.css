@@ -1,0 +1,15 @@
+.form-control {
+    background-color: #ffffff00;
+    color: #fff;
+}
+
+.header-cont {
+    width: 100%;
+    justify-content: space-evenly;
+    align-self: center;
+    margin-bottom: 3%;
+}
+
+.search-rate {
+    justify-content: flex-end
+}
