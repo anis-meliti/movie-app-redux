@@ -7,7 +7,7 @@ import MovieCard from '../MovieCard/MovieCard'
 
 const mapStateToProps = state => {
     if (state.searchTerm) return { moviesList: state.moviesList.filter(movie => movie.title.toLowerCase().includes(state.searchTerm.toLowerCase())) }
-    console.log('from maptoprops', { moviesList: state.moviesList });
+    if (state.searchStar && state.searchStar > 1) return { moviesList: state.moviesList.filter(movie => movie.rating === state.searchStar) }
     return ({
         moviesList: state.moviesList
     });

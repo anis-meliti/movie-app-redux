@@ -8,11 +8,12 @@ import { connect } from 'react-redux';
 // ***** Start Component******
 import StarRatingComponent from 'react-star-rating-component'
 import { filterMovie } from '../../js/actions';
+import { filterMovieStar } from '../../js/actions';
 
 const mapDispatchToProps = {
 
-    filterMovie:
-        searchTerm => (filterMovie(searchTerm))
+    filterMovie: searchTerm => (filterMovie(searchTerm)),
+    filterMovieStar: searchStar => (filterMovieStar(searchStar))
 }
 
 
@@ -20,6 +21,10 @@ class connectedHeader extends Component {
 
     searchByName = event => {
         this.props.filterMovie(event.target.value)
+    }
+    onStarClick = (nextValue) => {
+        console.log(nextValue)
+        this.props.filterMovieStar(nextValue)
     }
     render() {
         return (
@@ -36,7 +41,7 @@ class connectedHeader extends Component {
                             name="rate1"
                             starCount={5}
                             starRatedColor="yellow"
-                            // onStarClick={this.props.rating.bind(this)}
+                            onStarClick={this.onStarClick}
                             numberOfStars={5}
 
                         />
