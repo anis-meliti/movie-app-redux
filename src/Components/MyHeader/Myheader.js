@@ -3,10 +3,24 @@ import React, { Component } from 'react';
 import './Myheader.css';
 // ********Bootstrap******
 import { Container, Col, Row, FormControl } from 'react-bootstrap';
-
+// *****redux*****
+import { connect } from 'react-redux';
+// ***** Start Component******
 import StarRatingComponent from 'react-star-rating-component'
+import { filterMovie } from '../../js/actions';
 
-class Myheader extends Component {
+const mapDispatchToProps = {
+
+    filterMovie:
+        searchTerm => (filterMovie(searchTerm))
+}
+
+
+class connectedHeader extends Component {
+
+    searchByName = event => {
+        this.props.filterMovie(event.target.value)
+    }
     render() {
         return (
             <Container className='header-cont'>
@@ -14,7 +28,7 @@ class Myheader extends Component {
                     <Col md={8}>
                         <FormControl name='searchBox'
                             placeholder="Search movie by name...."
-                        // onChange={this.props.search}
+                            onChange={this.searchByName}
                         />
                     </Col>
                     <Col className="search-rate" md={4}>
@@ -33,5 +47,6 @@ class Myheader extends Component {
         )
     }
 }
+const Myheader = connect(null, mapDispatchToProps)(connectedHeader)
 
 export default Myheader

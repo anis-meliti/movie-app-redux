@@ -1,2 +1,2 @@
-export const ADD_TODO = "ADD_TODO";
-export const REMOVE_TODO = "REMOVE_TODO";
+export const ADD_MOVIE = "ADD_MOVIE";
+export const FILTER_MOVIE = "FILTER_MOVIE";

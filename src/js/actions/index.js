@@ -1,10 +1,10 @@
-import { ADD_TODO, REMOVE_TODO } from "../constants/action-types";
+import { ADD_MOVIE, FILTER_MOVIE } from "../constants/action-types";
 
 
-export function addTodo(payload) {
+export function addMovie(payload) {
 
-    return { type: ADD_TODO, payload }
+    return { type: ADD_MOVIE, payload }
 };
-export function removeTodo(payload) {
-    return { type: REMOVE_TODO, payload }
+export function filterMovie(payload) {
+    return { type: FILTER_MOVIE, payload }
 };

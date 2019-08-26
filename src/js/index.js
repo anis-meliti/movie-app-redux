@@ -1,4 +1,6 @@
 import store from "../js/store/index";
-import { addTodo } from "./actions";
+import { addMovie } from "./actions";
+import { filterMovie } from "./actions";
 window.store = store;
-window.addTodo = addTodo;
+window.addMovie = addMovie;
+window.filterMovie = filterMovie;

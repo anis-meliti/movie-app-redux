@@ -1,6 +1,7 @@
-import { ADD_TODO, REMOVE_TODO } from "../constants/action-types";
+import { ADD_MOVIE, FILTER_MOVIE } from "../constants/action-types";
 import _ from 'lodash'
 const initialState = {
+
     moviesList: [{
         "title": "V for Vandetta",
         "poster": "http://i.ebayimg.com/00/s/NTAwWDMzMw==/z/VIsAAOxyaTxTWIqs/$_3.JPG?set_id=2",
@@ -21,24 +22,19 @@ const initialState = {
         "poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
         "rating": 4
     }
-    ]
+    ],
+    searchTerm: ''
+
 }
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_TODO: return Object.assign({}, state, {
-            todos:
-                state.todos.concat(action.payload)
+        case ADD_MOVIE: return Object.assign({}, state, {
+            moviesList:
+                state.moviesList.concat(action.payload)
         });
-        case REMOVE_TODO: let newState = _.cloneDeep(state);
-            let index = _.findIndex(newState.todos, { ID: action.payload });
-            newState.todos.splice(index, 1);
-            return newState;
 
-
-
-
-
+        case FILTER_MOVIE: return { ...state, searchTerm: action.payload }
         default: return state;
     }
 }
